@@ -4,13 +4,12 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDis
 
  function getShadowContainer() {
   return document
-    .querySelector("#hb-test-shadow")
+    .querySelector("#test-shadow")
     .shadowRoot.querySelector("#plasmo-shadow-container")
 }
 
 export default function TestModal() {
-  const {isOpen, onOpen, onOpenChange, isControlled} = useDisclosure();
-  console.log("TestModal - isControlled:", isControlled)
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   return (
     <>
@@ -19,6 +18,7 @@ export default function TestModal() {
         isOpen={isOpen} 
         placement="top-center"
         portalContainer={getShadowContainer()}
+        onOpenChange={onOpenChange}
         hideCloseButton
       >
         <ModalContent>
